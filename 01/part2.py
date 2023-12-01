@@ -27,8 +27,8 @@ NUMBERS_MAP = {
 }
 
 
-def parse_input() -> list[str]:
-    with open("./01/input.txt", "r") as input:
+def parse_input(path: string) -> list[str]:
+    with open(path, "r") as input:
         return input.read().splitlines()
 
 
@@ -60,4 +60,5 @@ def find_last_digit(line: str) -> int:
 
 
 if __name__ == "__main__":
-    print(solve(parse_input()))
+    assert solve(parse_input("./01/part2.test")) == 281
+    print(solve(parse_input("./01/input")))

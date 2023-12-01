@@ -1,13 +1,12 @@
 import string
 
 
-def parse_input() -> list[str]:
-    with open("./01/input.txt", "r") as input:
+def parse_input(path: str) -> list[str]:
+    with open(path, "r") as input:
         return input.read().splitlines()
 
 
-def solve() -> int:
-    input = parse_input()
+def solve(input: list[str]) -> int:
     result = 0
     for line in input:
         digits: list[int] = [int(char) for char in line if char in string.digits]
@@ -17,4 +16,5 @@ def solve() -> int:
 
 
 if __name__ == "__main__":
-    print(solve())
+    assert solve(parse_input("./01/part1.test")) == 142
+    print(solve(parse_input("./01/input")))
